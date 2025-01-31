@@ -1,4 +1,5 @@
 from fpdf import FPDF
+import os
 
 def generate_feedback(text, scores, mode, part):
     feedback = f"Fluency: {scores['fluency']}\nGrammar: {scores['grammar']}\nVocabulary: {scores['vocabulary']}"
@@ -7,6 +8,10 @@ def generate_feedback(text, scores, mode, part):
     return feedback
 
 def generate_pdf_report(feedback, file_path):
+    # Create the directory if it doesn't exist
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+
+    # Generate the PDF
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
