@@ -9,10 +9,23 @@
 <body>
     <div class="container">
         <h1>IELTS Speaking Test</h1>
-        <div id="transcript"></div>
-        <button id="start-btn">Start Recording</button>
-        <button id="stop-btn" disabled>Stop Recording</button>
-        <div id="feedback"></div>
+        <div id="mode-selector">
+            <button id="practice-mode-btn">Practice Mode</button>
+            <button id="test-mode-btn">Test Mode</button>
+        </div>
+        <div id="test-section" style="display: none;">
+            <h2 id="test-part"></h2>
+            <p id="test-prompt"></p>
+        </div>
+        <div id="recording-section">
+            <button id="start-btn">Start Recording</button>
+            <button id="stop-btn" disabled>Stop Recording</button>
+        </div>
+        <div id="feedback-section">
+            <h2>Feedback</h2>
+            <p id="feedback"></p>
+            <button id="download-pdf-btn" style="display: none;">Download PDF Report</button>
+        </div>
     </div>
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
